@@ -7,7 +7,7 @@ import itertools
 
 class GroupFinder(object):
     def __init__(self):
-        f = open("data-22.07.31.pkl", "rb")
+        f = open("data-22.50.13.pkl", "rb")
         subj_dict = pickle.load(f)
         f.close()
         
@@ -18,13 +18,15 @@ class GroupFinder(object):
                 self.groups_dict[group.n_id] = (group, subj.subject_name)
 
 # Find the starting and ending time of the schedule
-def check_start(matrix):
+def check_start(matr):
+    matrix = numpy.array(matr)
     for i in range(0,matrix.shape[0]):
         for e in matrix[i]:
             if e > 0:
                 return 7+i
                 
-def check_end(matrix):
+def check_end(matr):
+    matrix = numpy.array(matr)
     for i in range(0, matrix.shape[0]):
         for e in matrix[matrix.shape[0]-i-1]:
             if e > 0:
@@ -75,11 +77,25 @@ gf = GroupFinder()
 for i in range(0, a):
     e = filtered_options[i]
     
+    g_list = []
     for g_id in e[0]:
-        j = gf.groups_dict[g_id]
-        print u"{0}: {1}".format(j[1].decode("utf-8"), j[0].professors[0]).encode("utf-8")
+        g_list.append(gf.groups_dict[g_id])
+    g_list.sort(key=lambda group: check_start(group[0].matrix))
+    
+    for j in g_list:
+        gr = j[0]
+        print u"{0}: {1}".format(j[1].decode("utf-8"), gr.professors[0]).encode("utf-8")
+        
+        sched_list = list(set(gr.sched_readable))
+        
+        for sched in sched_list:
+            print u"{0}, {1}".format(
+            sched[0], sched[1]).encode("utf-8")
+        print gr.classroom
+        print
         
     #print
     #print e[1]
+    print
     print "### From {0:02d} to {1:02d}".format(check_start(e[1]), check_end(e[1]))
     print

@@ -15,6 +15,8 @@ class Group(object):
         self.professors = []
         self.assistants = []
         self.matrix = []
+        self.sched_readable = ()
+        self.classroom = ""
 
 class CienciasPipeline(object):
     def __init__(self):
@@ -41,6 +43,8 @@ class CienciasPipeline(object):
         group.professors = item["professors"]
         group.assistants = item["assistants"]
         group.matrix = item["matrix"].tolist()
+        group.sched_readable = item["sched_readable"]
+        group.classroom = item["classroom"]
         
         self.subjects_dict[sid].groups.append(group)
         

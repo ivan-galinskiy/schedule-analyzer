@@ -69,6 +69,7 @@ class CienciasSpider(BaseSpider):
             item['assistants'] = []
             item['matrix'] = sched_matr("","")
             item['sched_readable'] = []
+            item['classroom'] = ""
             
             table = group.select(
             './parent::div[1]/following-sibling::table[1]')[0]
