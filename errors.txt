@@ -1,0 +1,50 @@
+2013-08-04 16:23:37-0500 [scrapy] INFO: Scrapy 0.16.5 started (bot: ciencias)
+2013-08-04 16:23:38-0500 [scrapy] DEBUG: Enabled extensions: LogStats, TelnetConsole, CloseSpider, WebService, CoreStats, SpiderState
+2013-08-04 16:23:38-0500 [scrapy] DEBUG: Enabled downloader middlewares: HttpAuthMiddleware, DownloadTimeoutMiddleware, UserAgentMiddleware, RetryMiddleware, DefaultHeadersMiddleware, RedirectMiddleware, CookiesMiddleware, HttpCompressionMiddleware, ChunkedTransferMiddleware, DownloaderStats
+2013-08-04 16:23:38-0500 [scrapy] DEBUG: Enabled spider middlewares: HttpErrorMiddleware, OffsiteMiddleware, RefererMiddleware, UrlLengthMiddleware, DepthMiddleware
+2013-08-04 16:23:38-0500 [scrapy] DEBUG: Enabled item pipelines: CienciasPipeline
+2013-08-04 16:23:38-0500 [ciencias] INFO: Spider opened
+2013-08-04 16:23:38-0500 [ciencias] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2013-08-04 16:23:38-0500 [scrapy] DEBUG: Telnet console listening on 0.0.0.0:6023
+2013-08-04 16:23:38-0500 [scrapy] DEBUG: Web service listening on 0.0.0.0:6080
+2013-08-04 16:23:39-0500 [ciencias] DEBUG: Crawled (200) <GET https://web.fciencias.unam.mx/acceder> (referer: None)
+Username: 2013-08-04 16:23:55-0500 [scrapy] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2013-08-04 16:23:56-0500 [scrapy] INFO: Received SIGINT twice, forcing unclean shutdown
+2013-08-04 16:24:11-0500 [ciencias] ERROR: Spider error processing <GET https://web.fciencias.unam.mx/acceder>
+	Traceback (most recent call last):
+	  File "/usr/lib/python2.7/dist-packages/twisted/internet/base.py", line 1171, in mainLoop
+	    self.runUntilCurrent()
+	  File "/usr/lib/python2.7/dist-packages/twisted/internet/base.py", line 793, in runUntilCurrent
+	    call.func(*call.args, **call.kw)
+	  File "/usr/lib/python2.7/dist-packages/twisted/internet/defer.py", line 361, in callback
+	    self._startRunCallbacks(result)
+	  File "/usr/lib/python2.7/dist-packages/twisted/internet/defer.py", line 455, in _startRunCallbacks
+	    self._runCallbacks()
+	--- <exception caught here> ---
+	  File "/usr/lib/python2.7/dist-packages/twisted/internet/defer.py", line 542, in _runCallbacks
+	    current.result = callback(current.result, *args, **kw)
+	  File "/home/ivanko/Dropbox/Dropbox/Programming/Python/schedule-analyzer/ciencias/spiders/ciencias_spider.py", line 22, in parse
+	    formdata={'username': str(raw_input("Username: ")),
+	exceptions.EOFError: 
+	
+2013-08-04 16:24:11-0500 [ciencias] INFO: Closing spider (shutdown)
+2013-08-04 16:24:11-0500 [ciencias] INFO: Dumping Scrapy stats:
+	{'downloader/request_bytes': 234,
+	 'downloader/request_count': 1,
+	 'downloader/request_method_count/GET': 1,
+	 'downloader/response_bytes': 2508,
+	 'downloader/response_count': 1,
+	 'downloader/response_status_count/200': 1,
+	 'finish_reason': 'shutdown',
+	 'finish_time': datetime.datetime(2013, 8, 4, 21, 24, 11, 525279),
+	 'log_count/DEBUG': 7,
+	 'log_count/ERROR': 1,
+	 'log_count/INFO': 6,
+	 'response_received_count': 1,
+	 'scheduler/dequeued': 1,
+	 'scheduler/dequeued/memory': 1,
+	 'scheduler/enqueued': 1,
+	 'scheduler/enqueued/memory': 1,
+	 'spider_exceptions/EOFError': 1,
+	 'start_time': datetime.datetime(2013, 8, 4, 21, 23, 38, 355286)}
+2013-08-04 16:24:11-0500 [ciencias] INFO: Spider closed (shutdown)

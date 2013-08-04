@@ -116,5 +116,10 @@ class CienciasSpider(BaseSpider):
                 item['matrix'] += sched_matr(days, hours)
 
             item['matrix'] = normalize_sched_matr(item['matrix'])
+            #print item['group_id']
+            #print item['subject_id']
+            #print item['subject_name']
+            #print item['matrix']
+            #print
             
             yield item
