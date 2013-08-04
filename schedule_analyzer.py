@@ -7,7 +7,7 @@ import itertools
 
 class GroupFinder(object):
     def __init__(self):
-        f = open("data-06.35.16.pkl", "rb")
+        f = open("data-22.07.31.pkl", "rb")
         subj_dict = pickle.load(f)
         f.close()
         
@@ -79,7 +79,7 @@ for i in range(0, a):
         j = gf.groups_dict[g_id]
         print u"{0}: {1}".format(j[1].decode("utf-8"), j[0].professors[0]).encode("utf-8")
         
-    print
-    print e[1]
+    #print
+    #print e[1]
     print "### From {0:02d} to {1:02d}".format(check_start(e[1]), check_end(e[1]))
     print

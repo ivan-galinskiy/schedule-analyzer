@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 import urlparse
 import re
 
@@ -100,7 +103,7 @@ class CienciasSpider(BaseSpider):
                         except IndexError:
                             name = ""
                         item['assistants'].append(name.strip())
-                    elif re.search("(?:^|\-|\s)(lu|mi|vi|sa)(?:$|\-|\s)", \
+                    elif re.search(u"(?:^|\-|\s)(lu|ma|mi|ju|vi|sá)(?:$|\-|\s)",
                     col_text):
                         days = col_text.strip()
                     elif re.search("[\d:]+ a [\d:]+", col_text):
