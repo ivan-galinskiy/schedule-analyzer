@@ -32,7 +32,7 @@ class CienciasSpider(BaseSpider):
             return
          
         #Physics   
-        return Request("https://web.fciencias.unam.mx/docencia/horarios/indiceplan/20141/1081",
+        return Request("https://web.fciencias.unam.mx/docencia/horarios/indiceplan/20162/1081",
         callback=self.retrieve_subjects)
         
     def retrieve_subjects(self, response):
@@ -109,9 +109,9 @@ class CienciasSpider(BaseSpider):
                         days = col_text.strip()
                     elif re.search("[\d:]+ a [\d:]+", col_text):
                         hours = col_text.strip()
-                    elif col.select('./a') and col_num == len(cols)-1:
-                        clrm = col.select('./a/text()')[0].extract()
-                        item['classroom'] = clrm
+                    #elif col.select('./a') and col_num == len(cols)-1:
+                        #clrm = col.select('./a/text()')[0].extract()
+                        #item['classroom'] += " " + clrm
                     else:
                         pass
                 
